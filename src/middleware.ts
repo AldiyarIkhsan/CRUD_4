@@ -4,7 +4,7 @@ import { Result, ValidationError, validationResult, check } from "express-valida
 // In middleware.ts
 export const basicAuthMiddleware = (req: Request, res: Response, next: NextFunction) => {
   // Allow testing endpoint without auth
-  if (req.method === "GET" || req.path === "/hometask_03/api/testing/all-data") {
+  if (req.method === "GET" || req.path === "/hometask_04/api/testing/all-data") {
     return next();
   }
 
