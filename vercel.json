@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "express-products-vercel",
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "env": {
+    "MONGO_URI": "@MONGO_URI"
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/index.ts"
+    }
+  ]
+}
