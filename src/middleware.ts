@@ -89,3 +89,26 @@ export const postValidationRules = [
     .isMongoId()
     .withMessage("Blog ID must be a valid MongoDB ObjectId"),
 ];
+
+export const postValidationRulesForBlogIdInParams = [
+  check("title")
+    .trim()
+    .notEmpty()
+    .withMessage("Title is required")
+    .isLength({ max: 30 })
+    .withMessage("Title should be max 30 characters"),
+
+  check("shortDescription")
+    .trim()
+    .notEmpty()
+    .withMessage("Short description is required")
+    .isLength({ max: 100 })
+    .withMessage("Short description should be max 100 characters"),
+
+  check("content")
+    .trim()
+    .notEmpty()
+    .withMessage("Content is required")
+    .isLength({ max: 1000 })
+    .withMessage("Content should be max 1000 characters"),
+];

@@ -2,6 +2,7 @@ import { Express, Request, Response } from "express";
 import { postValidationRules, handleInputErrors, basicAuthMiddleware } from "./middleware";
 import { PostModel } from "./models/PostModel";
 import { BlogModel } from "./models/BlogModel";
+import { postValidationRulesForBlogIdInParams } from "./middleware";
 
 export const setupPosts = (app: Express) => {
   app.get("/posts", async (req, res) => {
@@ -64,7 +65,7 @@ export const setupPosts = (app: Express) => {
   app.post(
     "/blogs/:id/posts",
     basicAuthMiddleware,
-    postValidationRules,
+    postValidationRulesForBlogIdInParams, 
     handleInputErrors,
     async (req: Request, res: Response) => {
       const blog = await BlogModel.findById(req.params.id);
